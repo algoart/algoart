@@ -1,6 +1,12 @@
 # algoart
 The Art of Algorithms
 
+FIXME/TODO:
+- Two arrays sort
+- Partial sum
+- Graph/tree construction by using edge list
+- BFS/DFS iterative algo
+
 ## License
 Public Domain. For more information, please refer to http://unlicense.org
 

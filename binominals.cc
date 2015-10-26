@@ -72,10 +72,10 @@ class Binominals { public:
             ifacts[i] = i < maxn ? mul(ifacts[i+1], i+1) : inv(fact(maxn));
     }
 
-    ll fact(int n){ return facts[n]; }
-    ll ifact(int n){ return ifacts[n]; }
-    ll P(int n, int k) { return mul(fact(n), ifact(n-k)); }
-    ll C(int n, int k) { return mul(P(n, k), ifact(k));}
+    inline ll fact(int n){ return facts[n]; }
+    inline ll ifact(int n){ return ifacts[n]; }
+    inline ll P(int n, int k) { return mul(fact(n), ifact(n-k)); }
+    inline ll C(int n, int k) { return mul(P(n, k), ifact(k));}
 };
 
 ///////////////////////////////////////////////////////////////////////////////
