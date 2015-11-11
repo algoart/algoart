@@ -1,5 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # disjoint_set.py - Disjoint_set program by Sergey 2015
+# AlgoArt - The Art of Algorithms (github.com/algoart/algoart)
 
 """
 

@@ -1,4 +1,5 @@
 // binominals.cc - Binominals program by Sergey 2015
+// AlgoArt - The Art of Algorithms (github.com/algoart/algoart)
 
 /*
 

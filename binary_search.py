@@ -1,5 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # binary_search.py - Binary_search program by Sergey 2015
+# AlgoArt - The Art of Algorithms (github.com/algoart/algoart)
 
 """
 

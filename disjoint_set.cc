@@ -1,4 +1,5 @@
 // disjoint_set.cc - Disjoint_set program by Sergey 2015
+// AlgoArt - The Art of Algorithms (github.com/algoart/algoart)
 
 /*
 

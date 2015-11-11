@@ -1,4 +1,5 @@
 // binary_search.cc - Bin_search program by Sergey 2015
+// AlgoArt - The Art of Algorithms (github.com/algoart/algoart)
 
 /*
 
