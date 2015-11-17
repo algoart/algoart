@@ -60,7 +60,7 @@ Strcpy* class_wrap_input(const string& test="") {
         cin.rdbuf(input.rdbuf());
     };
     Strcpy* d = new Strcpy();
-    if (test != "") cin.rdbuf(orig);    
+    if (test != "") cin.rdbuf(orig);
     return d;
 }
 
@@ -202,7 +202,7 @@ class LocalUnittest: public Unittest {
         int imax = 100;
         string test;
         ostringstream o_test;
-        
+
         for(int i = 0; i < imax; i++) o_test << "a";
         test = o_test.str();
 
@@ -228,10 +228,6 @@ int main(int argc, char *argv[]) {
     // Faster cin and cout
     ios_base::sync_with_stdio(0);cin.tie(0);
 
-    if (argc > 1 && !strcmp(argv[1], "-ut")) {
-        LocalUnittest lut;
-        return lut.run();
-    }
     cout << calculate() << endl;
     return 0;
 }

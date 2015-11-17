@@ -31,7 +31,7 @@ template <class Base> class Linked_list { public:
         list = NULL;
     }
 
-    insert(Base n) {
+    void insert(Base n) {
         Node<Base>* l = new Node<Base>;
         l->first = n;
         l->second = list;
@@ -46,7 +46,7 @@ template <class Base> class Linked_list { public:
         return list;
     }
 
-    next_iter(Node<Base>*& p) {
+    void next_iter(Node<Base>*& p) {
         if (p != NULL) p = p->second;
     }
 
@@ -63,7 +63,7 @@ template <class Base> class Linked_list { public:
         return msg.str();
     }
 
-    reverse() {
+    void reverse() {
         Node<Base>* prev = NULL;
         Node<Base>* cur = list;
         Node<Base>* next;
@@ -76,7 +76,7 @@ template <class Base> class Linked_list { public:
         list = prev;
     }
 
-    loop1() {
+    int loop1() {
         Node<Base>* prev = NULL;
         Node<Base>* p = start_iter();
         while (p != NULL) {
@@ -87,7 +87,7 @@ template <class Base> class Linked_list { public:
         return 0;
     }
 
-    loop() {
+    int loop() {
         Node<Base>* fast = start_iter();
         Node<Base>* slow = start_iter();
         while (fast != NULL) {
@@ -123,7 +123,7 @@ Linked_list<int>* class_wrap_input(const string& test="") {
         cin.rdbuf(input.rdbuf());
     };
     Linked_list<int>* d = new Linked_list<int>();
-    if (test != "") cin.rdbuf(orig);    
+    if (test != "") cin.rdbuf(orig);
     return d;
 }
 
@@ -157,14 +157,14 @@ class Unittest { public:
     }
 
     // Override this function in derived class
-    virtual test_list() {
+    virtual void test_list() {
         test_basic();
         test_done();
     }
 
-    test_basic() { CHECKT("Base class basic test" == ""); }
+    void test_basic() { CHECKT("Base class basic test" == ""); }
 
-    run() {
+    int run() {
         test_list();
         double elp_secs = double(clock()) / CLOCKS_PER_SEC;
         cout << endl;
@@ -177,7 +177,7 @@ class Unittest { public:
         if (fail_cnt > 0) return 1;
     }
 
-    test_fail_hdr(const string& stra, const string& strb,
+    void test_fail_hdr(const string& stra, const string& strb,
             const string& file, int line, const string& function) {
         fail_cnt ++;
         fail = 1;
@@ -191,7 +191,7 @@ class Unittest { public:
         fail_msg += msg.str();
     }
 
-    test_fail_err(long long a, long long b,
+    int test_fail_err(long long a, long long b,
             const string& stra, const string& strb,
             const string& file, int line, const string& function) {
         if (a == b) return 0;
@@ -201,7 +201,7 @@ class Unittest { public:
         fail_msg += msg.str();
     }
 
-    test_fail_errs(const string& a, const string& b,
+    int test_fail_errs(const string& a, const string& b,
             const string& stra, const string& strb,
             const string& file, int line, const string& function) {
         if (a == b) return 0;
@@ -212,7 +212,7 @@ class Unittest { public:
         fail_msg += msg.str();
     }
 
-    test_done() {
+    void test_done() {
         test_cnt ++;
         if (fail == 0) cout << ".";
         else cout << "F";
@@ -228,7 +228,7 @@ class Unittest { public:
 
 class LocalUnittest: public Unittest {
 
-    test_class_basic_functions() {
+    void test_class_basic_functions() {
 
         // Constructor test
         Linked_list<int>* d = new Linked_list<int>();
@@ -256,7 +256,7 @@ class LocalUnittest: public Unittest {
 
     }
 
-    test_sample_tests() {
+    void test_sample_tests() {
 
         // Reverse linked list in O(N)
         int dlen = 100000;
@@ -286,7 +286,7 @@ class LocalUnittest: public Unittest {
         CHECK(d->loop(), 1);
     }
 
-    test_list() {
+    void test_list() {
         test_class_basic_functions();
         test_done();
         test_sample_tests();

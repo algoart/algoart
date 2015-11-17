@@ -36,7 +36,7 @@ using namespace std;
 
 
 class Binominals { public:
-    
+
     typedef long long ll;
 
     ll m;
@@ -46,7 +46,7 @@ class Binominals { public:
     inline ll mod(ll a) { return a % m; }
     inline ll add(ll a, ll b){ return mod(a + b); }
     inline ll mul(ll a, ll b){
-        if (m <= LONG_MAX) return mod(a * b); 
+        if (m <= (1LL << 32)) return mod(a * b);
         ll r = (a * b - (ll)((long double)a * b / m) * m) % m;
         return r < 0 ? r + m : r;
     }
@@ -108,14 +108,14 @@ class Cppunit { public:
     virtual void single_test() {}
     virtual void test_list() { single_test(); }
     double dclock() { return double(clock()) / CLOCKS_PER_SEC; }
-    status() {
+    int status() {
         std::cout << std::endl; if (fails) std::cout << serr.str();
         std::cout << "--------------------------------------------------" << std::endl;
         std::cout << "Ran " << checks << " checks in " << dclock() << "s" << std::endl << std::endl;
         if (fails) std::cout << "FAILED (failures=" << fails << ")"; else std::cout << "OK" << std::endl;
         return fails > 0;
     }
-    run() { std::streambuf* ocin = std::cin.rdbuf(); test_list(); std::cin.rdbuf(ocin); return status(); }
+    int run() { std::streambuf* ocin = std::cin.rdbuf(); test_list(); std::cin.rdbuf(ocin); return status(); }
 };
 
 
