@@ -40,8 +40,8 @@ template <typename t> int lbound(vector <t>& v, t n){
 template <typename t> int rbound(vector <t>& v, t n){
     int b = 0, e = v.size();
     while (b != e){
-        int mid = (b + e) / 2;
-        if (v[mid] <= n) b = mid;
+        int mid = (b + e + 1) / 2;
+        if (v[mid - 1] <= n) b = mid;
         else e = mid - 1;
     }
     return b;
@@ -103,8 +103,17 @@ class MyCppunit: public Cppunit {
         CHECK(lbound<int>(v, 100), 6);
 
         // Low and upper bounds
+        CHECK(lbound<int>(v, 0), 0);
+        CHECK(lbound<int>(v, 2), 1);
+        CHECK(lbound<int>(v, 4), 2);
         CHECK(lbound<int>(v, 5), 2);
-        CHECK(rbound<int>(v, 5), 3);
+        CHECK(lbound<int>(v, 100), 6);
+
+        CHECK(rbound<int>(v, 0), 0);
+        CHECK(rbound<int>(v, 2), 2);
+        CHECK(rbound<int>(v, 4), 2);
+        CHECK(rbound<int>(v, 5), 4);
+        CHECK(rbound<int>(v, 100), 6);
 
         // Search
         CHECK(search<int>(v, 11), -1);

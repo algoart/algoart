@@ -43,8 +43,8 @@ def rbound(v, n):
     b = 0
     e = len(v)
     while b != e:
-        mid = (b + e) // 2
-        if v[mid] <= n:
+        mid = (b + e + 1) // 2
+        if v[mid - 1] <= n:
             b = mid
         else:
             e = mid - 1
@@ -70,8 +70,17 @@ class unitTests(unittest.TestCase):
         self.assertEqual(lbound(v, 100), 6)
 
         # Low and upper bounds
+        self.assertEqual(lbound(v, 0), 0)
+        self.assertEqual(lbound(v, 2), 1)
+        self.assertEqual(lbound(v, 4), 2)
         self.assertEqual(lbound(v, 5), 2)
-        self.assertEqual(rbound(v, 5), 3)
+        self.assertEqual(lbound(v, 100), 6)
+
+        self.assertEqual(rbound(v, 0), 0)
+        self.assertEqual(rbound(v, 2), 2)
+        self.assertEqual(rbound(v, 4), 2)
+        self.assertEqual(rbound(v, 5), 4)
+        self.assertEqual(rbound(v, 100), 6)
 
         # Search
         self.assertEqual(search(v, 11), -1)
