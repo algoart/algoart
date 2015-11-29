@@ -2,6 +2,7 @@
 The Art of Algorithms
 
 FIXME/TODO:
+- Arbitrary precision for c++ (11/2015)
 - Add Ternary search (11/2015)
 - Two arrays sort (09/2015)
 - Partial sum (09/2015)
@@ -18,7 +19,7 @@ Numbers
 - [Prime numbers](https://en.wikipedia.org/wiki/Prime_number), [sieve](https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes) - source [C++](primes.cc), [Python3](primes.py)
 - [GCD](https://en.wikipedia.org/wiki/Greatest_common_divisor), [LCM](https://en.wikipedia.org/wiki/Least_common_multiple) - source [C++](gcd.cc), [Python3](gcd.py)
 - [Fibonacci numbers](https://en.wikipedia.org/wiki/Fibonacci_number) - source
-- [Big Integer](https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic) - source
+- [Arbitrary precision](https://en.wikipedia.org/wiki/Arbitrary-precision_arithmetic) - source [Python3](precision.py)
 
 Structures
 - [Binary](https://en.wikipedia.org/wiki/Binary_search_algorithm), [Ternary search](https://en.wikipedia.org/wiki/Ternary_search), [lower/upper bounds](https://en.wikipedia.org/wiki/Upper_and_lower_bounds) - source [C++](binary_search.cc), [Python3](binary_search.py)
