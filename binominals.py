@@ -7,12 +7,14 @@
 Calculating binominal coefficients, factorials, inverted factorials, fast
 exponents, modulo operations etc.
 
-Binominals(mod, maxn) - modulo and max N selection
+Modulos(mod) - modulo selection
 mod(a)      - Modulo operation
 add(a,b)    - Modulo addition
 mul(a,b)    - Modulo multiplication
 pow(e,n)    - Modulo power (using binary exponent)
 inv(a)      - Modulo inverse function, i.e. mul(a, inv(a)) == 1
+
+Binominals(mod, maxn) - modulo and max N selection
 fact(n)     - Factorial
 ifact(n)    - Factorial inverse function
 P(n,k)      - Number of permutations
@@ -32,21 +34,23 @@ import unittest
 import sys
 
 ###############################################################################
-# Binominals Class (Main Program)
+# Modulos Class
 ###############################################################################
 
 
-class Binominals:
-    """ Binominals representation """
+class Modulos:
+
+    def __init__(self, mod=(10**9)+7):
+        self.m = mod
 
     def mod(self, a):
-        return a % self.mod
+        return a % self.m
 
     def add(self, a, b):
-        return (a + b) % self.mod
+        return (a + b) % self.m
 
     def mul(self, a, b):
-        return (a * b) % self.mod
+        return (a * b) % self.m
 
     def pow(self, e, n):
         r = 1
@@ -58,10 +62,19 @@ class Binominals:
         return r
 
     def inv(self, a):
-        return self.pow(a, self.mod-2)
+        return self.pow(a, self.m-2)
+
+
+###############################################################################
+# Binominals Class (Main Program)
+###############################################################################
+
+
+class Binominals(Modulos):
+    """ Binominals representation """
 
     def __init__(self, mod=(10**9)+7, maxn=10**5):
-        self.mod = mod
+        self.m = mod
 
         # Factorials
         self.facts = [0] * (maxn+1)
@@ -86,6 +99,7 @@ class Binominals:
     def C(self, n, k):
         return self.mul(self.P(n, k), self.ifact(k))
 
+
 ###############################################################################
 # Unit Tests
 ###############################################################################
@@ -93,7 +107,14 @@ class Binominals:
 
 class unitTests(unittest.TestCase):
 
-    def test_Binominals_(self):
+    def test_Modulos(self):
+        """ Modulos class testing """
+        d = Modulos()
+        self.assertEqual(d.add(4, 5), 9)
+        self.assertEqual(d.mul(4, 5), 20)
+        self.assertEqual(d.pow(4, 5), 1024)
+
+    def test_Binominals(self):
         """ Binominals class testing """
         d = Binominals(maxn=0)
 

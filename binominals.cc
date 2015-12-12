@@ -6,12 +6,14 @@
 Calculating binominal coefficients, factorials, inverted factorials, fast
 exponents, modulo operations etc.
 
-Binominals(mod, maxn) - modulo and max N selection
+Modulos(mod) - modulo selection
 mod(a)      - Modulo operation
 add(a,b)    - Modulo addition
 mul(a,b)    - Modulo multiplication
 pow(e,n)    - Modulo power (using binary exponent)
 inv(a)      - Modulo inverse function, i.e. mul(a, inv(a)) == 1
+
+Binominals(mod, maxn) - modulo and max N selection
 fact(n)     - Factorial
 ifact(n)    - Factorial inverse function
 P(n,k)      - Number of permutations
@@ -31,18 +33,17 @@ Extra space:        O(N)
 using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////////
-// Binominals Class (Main Program)
+// Modulos Class
 ///////////////////////////////////////////////////////////////////////////////
 
 
-class Binominals { public:
+class Modulos { public:
 
     typedef long long ll;
-
     ll m;
-    vector <ll> facts, ifacts;
 
-    // Modulo functions
+    Modulos(ll mod=1e9+7){ m = mod; }
+
     inline ll mod(ll a) { return a % m; }
     inline ll add(ll a, ll b){ return mod(a + b); }
     inline ll mul(ll a, ll b){
@@ -56,11 +57,22 @@ class Binominals { public:
         return r;
     }
     inline ll inv(ll a){ return pow(a, m-2); }
+ };
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Binominals Class (Main Program)
+///////////////////////////////////////////////////////////////////////////////
+
+
+class Binominals: public Modulos { public:
+
+    typedef long long ll;
+
+    vector <ll> facts, ifacts;
 
     // Constructing factorial arrays
-    Binominals(ll mod=1e9+7, int maxn=1e6){
-
-        m = mod;
+    Binominals(ll mod=1e9+7, int maxn=1e6) : Modulos(mod) {
 
         // Factorials
         facts.resize(maxn + 1);
@@ -121,15 +133,16 @@ class Cppunit { public:
 
 class MyCppunit: public Cppunit {
 
+    Modulos* m;
     Binominals* d;
 
     void single_test() {
 
         // Helping
-        d = new Binominals;
-        CHECK(d->add(4, 5), 9);
-        CHECK(d->mul(4, 5), 20);
-        CHECK(d->pow(4, 5), 1024);
+        m = new Modulos;
+        CHECK(m->add(4, 5), 9);
+        CHECK(m->mul(4, 5), 20);
+        CHECK(m->pow(4, 5), 1024);
 
         // Small modulo operations
         d = new Binominals(23);
