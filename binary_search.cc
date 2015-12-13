@@ -59,7 +59,7 @@ template <typename t> int search(vector <t>& v, t n){
 ///////////////////////////////////////////////////////////////////////////////
 
 
-// Cppunit - C++ Unit testing TDD framework (github.com/cppunit/cppunit)
+// CPlusPlusUnit - C++ Unit testing TDD framework (github.com/cppunit/cppunit)
 class Cppunit { public:
     #define CHECK(a,b)  check<long long>(a, b, #a, #b, __FILE__, __LINE__, __FUNCTION__);
     #define CHECKT(a)   check<bool>(a, true, #a, "true", __FILE__, __LINE__, __FUNCTION__);
