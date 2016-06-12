@@ -35,7 +35,7 @@ Structures
 - [Cycle detection](https://en.wikipedia.org/wiki/Cycle_detection) - source
 
 Strings
-- [KMP search algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm) - source
+- [KMP search algorithm](https://en.wikipedia.org/wiki/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm) - source [C++](kmp.cc), [Python3](kmp.py)
 - [Treap](https://en.wikipedia.org/wiki/Treap) - source
 - [Trie](https://en.wikipedia.org/wiki/Trie) - source
 
