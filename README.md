@@ -10,7 +10,7 @@ FIXME/TODO:
 - BFS/DFS iterative algo (09/2015)
 
 ## License
-Public Domain. For more information, please refer to http://unlicense.org
+This is free and unencumbered software released into the public domain. For more information, please refer to http://unlicense.org
 
 ## Algorithms
 
