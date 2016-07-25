@@ -1,3 +1,6 @@
+language: python
+python:
+  - "3.4"
 script:
-  - `ls *.py`
+  - ls *.py | xargs -n 1 python
 
