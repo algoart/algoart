@@ -1,6 +1,26 @@
-language: python
+sudo: required
+
+language:
+  - python
+  - cpp
+
 python:
   - "3.4"
+
 script:
   - ls *.py | xargs -n 1 python
+
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      - g++-5
+
+before_install:
+  - sudo unlink /usr/bin/g++ && sudo ln -s /usr/bin/g++-5 /usr/bin/g++
+  - g++ --version
+
+notifications:
+  email: true
 
