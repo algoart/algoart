@@ -1,4 +1,4 @@
-# algoart
+# algoart [![Build Status](https://travis-ci.org/AlgoArt/algoart.svg?branch=master)](https://travis-ci.org/AlgoArt/algoart)
 The Art of Algorithms
 
 FIXME/TODO:

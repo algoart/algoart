@@ -1,0 +1,3 @@
+script:
+  - ls *.py -1 | xargs python
+
