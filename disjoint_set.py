@@ -6,7 +6,7 @@
 
 Disjoint set is a data structure that keeps track of a set of elements
 partitioned into a number of disjoint (nonoverlapping) subsets. It supports
-two useful operations:
+following useful operations:
 
 new(n) - Create an initial structure with n subsets
 
@@ -23,7 +23,7 @@ NOTE: Rank heuristic is not included in this library due to a negative
 performance effect.
 
 Time complexity:    O(alpha(N))
-Extra space:        O(N)
+Extra space:        O(1)
 
 """
 

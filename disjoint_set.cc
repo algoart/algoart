@@ -5,7 +5,7 @@
 
 Disjoint set is a data structure that keeps track of a set of elements
 partitioned into a number of disjoint (nonoverlapping) subsets. It supports
-two useful operations:
+following useful operations:
 
 new(n) - Create an initial structure with n subsets
 
@@ -22,7 +22,7 @@ NOTE: Rank heuristic is not included in this library due to a negative
 performance effect.
 
 Time complexity:    O(alpha(N))
-Extra space:        O(N)
+Extra space:        O(1)
 
 */
 
@@ -38,8 +38,8 @@ class Disjoint_set { public:
 
     vector<int> root;
 
-    Disjoint_set(int n) { 
-        root.resize(n+1); 
+    Disjoint_set(int n) {
+        root.resize(n+1);
         for(int i=0; i<=n; i++) root[i] = i;
     }
 
@@ -58,7 +58,7 @@ class Disjoint_set { public:
         root[find(b)] = find(a);
     }
 
-    bool check(int a, int b){ 
+    bool check(int a, int b){
         return find(a) == find(b);
     }
 };
