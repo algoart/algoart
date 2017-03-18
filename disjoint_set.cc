@@ -18,6 +18,8 @@ join(a, b) - Join two subsets into a single subset
 
 check(a, b) - Check two elements to belong to the same subset
 
+allsets() - Return a map containing all sets with root as a key
+
 NOTE: Rank heuristic is not included in this library due to a negative
 performance effect.
 
@@ -36,17 +38,18 @@ using namespace std;
 
 class Disjoint_set { public:
 
-    vector<int> root;
+    vector<unsigned int> root;
 
-    Disjoint_set(int n) {
-        root.resize(n+1);
-        for(int i=0; i<=n; i++) root[i] = i;
+    Disjoint_set(unsigned int n) {
+        root.resize(n);
+        for(unsigned int i=0; i<n; i++) root[i] = i;
     }
 
-    int find(int a){
-        int r = root[a];
+    int find(unsigned int a){
+        assert(a < root.size());
+        auto r = root[a];
         while (r != a){
-            int rr = root[r];
+            auto rr = root[r];
             root[a] = rr;
             a = r;
             r = rr;
@@ -54,12 +57,22 @@ class Disjoint_set { public:
         return a;
     }
 
-    void join(int a, int b) {
+    void join(unsigned int a, unsigned int b) {
+        assert(a < root.size() && b < root.size());
         root[find(b)] = find(a);
     }
 
-    bool check(int a, int b){
+    bool check(unsigned int a, unsigned int b){
+        assert(a < root.size() && b < root.size());
         return find(a) == find(b);
+    }
+
+    map<unsigned int, set<unsigned int>> allsets(){
+        map<unsigned int, set<unsigned int>> result;
+        for(unsigned int i=0; i<root.size(); i++){
+            result[find(i)].insert(i);
+        }
+        return result;
     }
 };
 
@@ -115,6 +128,14 @@ class MyCppunit: public Cppunit {
         CHECK(d->find(2), 2);
         d->join(3, 2);
         CHECKT(d->check(2, 1));
+
+        // Test allsets function
+        map<unsigned int, set<unsigned int>> expected;
+        expected[0].insert(0);
+        expected[1].insert(1);
+        expected[1].insert(2);
+        expected[1].insert(3);
+        CHECKT(d->allsets() == expected);
 
         // Performance test
         int nmax = 500000;

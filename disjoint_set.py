@@ -19,6 +19,8 @@ join(a, b) - Join two subsets into a single subset
 
 check(a, b) - Check two elements to belong to the same subset
 
+allsets() - Return a defaultdict(set) containing all sets with root as a key
+
 NOTE: Rank heuristic is not included in this library due to a negative
 performance effect.
 
@@ -29,6 +31,7 @@ Extra space:        O(1)
 
 import unittest
 import sys
+import collections
 
 ###############################################################################
 # Disjoint_set Class (Main Program)
@@ -40,7 +43,7 @@ class Disjoint_set:
 
     def __init__(self, n):
         """ Default constructor """
-        self.root = [i for i in range(n+1)]
+        self.root = [i for i in range(n)]
 
     def find(self, a):
         r = self.root[a]
@@ -54,6 +57,14 @@ class Disjoint_set:
 
     def check(self, a, b):
         return self.find(a) == self.find(b)
+
+    def allsets(self):
+        sets = collections.defaultdict(set)
+        for i in range(len(self.root)):
+            root = self.find(i)
+            sets[root].add(i)
+        return sets
+
 
 ###############################################################################
 # Unit Tests
@@ -71,13 +82,14 @@ class unitTests(unittest.TestCase):
         self.assertEqual(d.find(2), 2)
         d.join(3, 2)
         self.assertTrue(d.check(2, 1))
+        self.assertTrue(d.allsets(), {0: set([0]), 1: set([1, 2, 3])})
 
         # Performance test
         import random
         nmax = 100000
         d = Disjoint_set(nmax)
         for i in range(nmax//4):
-                r = random.randint(0, nmax-100)
+                r = random.randint(0, nmax-101)
                 d.find(r)
                 d.join(r+1, r+100)
                 d.join(r+2, r+99)
