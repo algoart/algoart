@@ -1,13 +1,12 @@
 # algoart [![Build Status](https://travis-ci.org/AlgoArt/algoart.svg?branch=master)](https://travis-ci.org/AlgoArt/algoart)
 The Art of Algorithms
 
-FIXME/TODO:
-- Arbitrary precision for c++ (11/2015)
-- Add Ternary search (11/2015)
-- Two arrays sort (09/2015)
-- Partial sum (09/2015)
-- Graph/tree construction by using edge list combine with BFS/DFS (09/2015)
-- BFS/DFS iterative algo (09/2015)
+TODO: Arbitrary precision for c++ (11/2015)
+TODO: Add Ternary search (11/2015)
+TODO: Two arrays sort (09/2015)
+TODO: Partial sum (09/2015)
+TODO: Graph/tree construction by using edge list combine with BFS/DFS (09/2015)
+TODO: BFS/DFS iterative algo (09/2015)
 
 ## License
 This is free and unencumbered software released into the public domain. For more information, please refer to http://unlicense.org
