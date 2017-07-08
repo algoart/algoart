@@ -1,4 +1,4 @@
-# algoart [![Build Status](https://travis-ci.org/AlgoArt/algoart.svg?branch=master)](https://travis-ci.org/AlgoArt/algoart)
+# Algoart [![Build Status](https://travis-ci.org/AlgoArt/algoart.svg?branch=master)](https://travis-ci.org/AlgoArt/algoart)
 The Art of Algorithms
 
 TODO: Arbitrary precision for c++ (11/2015)
