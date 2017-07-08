@@ -2,10 +2,15 @@
 The Art of Algorithms
 
 TODO: Arbitrary precision for c++ (11/2015)
+
 TODO: Add Ternary search (11/2015)
+
 TODO: Two arrays sort (09/2015)
+
 TODO: Partial sum (09/2015)
+
 TODO: Graph/tree construction by using edge list combine with BFS/DFS (09/2015)
+
 TODO: BFS/DFS iterative algo (09/2015)
 
 ## License
