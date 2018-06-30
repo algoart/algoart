@@ -17,6 +17,27 @@ import sys
 # Fast_fib Class
 ###############################################################################
 
+def fib_fast(n):
+
+    def n_plus1(n, fnm1, fn):
+        return n+1, fn, fnm1+fn if n > 0 else 1
+
+    def n_mul2(n, fnm1, fn):
+        f2n = fn * (fn + 2 * fnm1)
+        f2nm1 = fn*fn + fnm1*fnm1
+        return n*2, f2nm1, f2n
+
+    if n == 0:
+        return 0
+
+    result = 1, 0, 1
+    n_binary = list(map(int, bin(n)[2:]))[1:]
+    for n_bit in n_binary:
+        result = n_mul2(*result)
+        if n_bit:
+            result = n_plus1(*result)
+    return result[2]  # f(n)
+
 
 class Fast_fibt:
     """ Fast_fib representation """
