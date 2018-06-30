@@ -1,8 +1,8 @@
 #!/usr/bin/env python
-# fast_fact.py - fast factorial calculation by Sergey 2015
+# fast_fib.py - fast fibonacci calculation by Sergey 2015
 
 """
-Fast factorial
+Fast fibonacci
 
 """
 
@@ -14,12 +14,12 @@ import sys
 
 
 ###############################################################################
-# Fast_fact Class
+# Fast_fib Class
 ###############################################################################
 
 
-class Fast_fact:
-    """ Fast_fact representation """
+class Fast_fibt:
+    """ Fast_fib representation """
 
     def __init__(self):
         """ Default constructor """
@@ -66,7 +66,7 @@ class Fast_fact:
 def main():
 
     # Sandbox
-    sb = Fast_fact(" ".join(sys.argv[1:]))
+    sb = Fast_fib(" ".join(sys.argv[1:]))
     sb.run()
 
 ###############################################################################
@@ -76,9 +76,9 @@ def main():
 
 class unitTests(unittest.TestCase):
 
-    def test_Fast_fact_class__basic_functionality(self):
-        """ Fast_fact class basic testing """
-        d = Fast_fact()
+    def test_Fast_fib_class__basic_functionality(self):
+        """ Fast_fib class basic testing """
+        d = Fast_fib()
 
         cur = (0, 0, 0)
         self.assertEqual(d.next(*cur), (1, 0, 1))
@@ -107,9 +107,9 @@ class unitTests(unittest.TestCase):
             "{0:.3f}s (fast {1:.3f}s slow {2:.3f}s)".
             format(stop-start, fast-start, stop-fast))
 
-    def test_Fast_fact_class__run(self):
+    def test_Fast_fib_class__run(self):
         """ Main execution function """
-        d = Fast_fact()
+        d = Fast_fib()
         d.run(test=True)
 
 if __name__ == "__main__":
